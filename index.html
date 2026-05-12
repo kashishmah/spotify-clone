@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assests/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="./assests/logo.png" style="height: 35px; width: 35px;">
+            </div>
+            <!-- <div class="circle-icon">
+                <i class="fa-solid fa-house"></i>
+            </div> -->
+            <div class="circle-icon" id="homeBtn">
+    <i class="fa-solid fa-house"></i>
+</div>
+        </div>
+        <div class="nav-center">
+    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+     <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+
+    <input 
+        type="text" 
+        id="searchInput"
+        placeholder="Search songs, artists, albums..."
+        class="search-input"
+    >
+
+    <i class="fa-regular fa-folder"></i>
+</div>
+        <div class="nav-right">
+<a href="#" id="adminBtn">Admin</a>
+            <button id="themeToggle" class="theme-toggle">
+    🌙
+</button>
+            <!-- <a href="#" class="hide">Premium</a> -->
+             <a href="#" class="hide" id="premiumBtn">Premium</a>
+            <!-- <a href="#" class="hide">Support</a> -->
+             <a href="#" class="hide" id="supportBtn">Support</a>
+            <!-- <a href="#" class="hide">Download</a> -->
+             <!-- <a href="#" class="hide" id="navbarDownload">Download</a> -->
+              <a href="#" class="hide" id="navbarDownload">
+    Download
+    <!-- <span id="downloadBadge" class="download-badge">0</span> -->
+</a>
+            <span class="divider"></span>
+            <a href="#"><i class="fa-solid fa-download"></i>Install</a>
+            <!-- <a href="#">Sign Up</a> -->
+            <a href="#" id="signupBtn">Sign Up</a>
+
+<!-- <a href="#" id="loginBtn">Login</a> -->
+ <!-- <button id="loginBtn" class="login-btn">Log in</button>
+<a href="#" id="logoutBtn" style="display:none;">Logout</a> -->
+
+
+
+<!-- LOGIN BUTTON -->
+<button id="loginBtn" class="login-btn">Log in</button>
+
+<!-- PROFILE SECTION -->
+<div id="profileSection" class="profile-section" style="display:none;">
+  <div class="avatar" id="avatarCircle"></div>
+  <span id="userDisplay"></span>
+
+  <div id="profileDropdown" class="profile-dropdown">
+    <a href="#" id="logoutBtn">Logout</a>
+  </div>
+
+</div>
+            <!-- <button class="login-btn">Log In</button> -->
+        </div>
+    </div>
+    <div class="main">
+        
+        <div class="sidebar">
+            <div class="nav">
+                <h4 id="libraryBtn">Your Library</h4>
+                <button class="badge">
+                    <i class="fa-solid fa-plus"></i>
+                    Create
+                </button>
+            </div>
+            <div class="lib-box">
+                <div class="box">
+                    <p class="box-p1">Create your first playlist</p>
+                    <p class="box-p2">It's easy, we'll help you.</p>
+                    <!-- <button class="badge-b">Create playlist</button> -->
+                     <button class="badge-b" id="createPlaylistBtn">
+  Create Playlist
+</button>
+                </div>
+                <div class="box">
+                    <p class="box-p1">Let's find some podcasts to follow</p>
+                    <p class="box-p2">We'll keep you updated on new episodes</p>
+                    <button class="badge-b">Browse Podcasts</button>
+                </div>
+                <div class="box" id="downloadedSection" style="display:none;">
+    <p class="box-p1">Downloaded Songs</p>
+    <ul id="downloadedList" style="padding-left:15px; font-size:0.85rem;"></ul>
+    
+</div>
+<div class="box">
+    <p class="box-p1">My Playlist</p>
+    
+    <!-- <ul id="playlistContainer" style="padding-left:15px; font-size:0.85rem;"></ul> -->
+     
+<div id="playlistContainer"></div>
+</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <!-- <h2>Recently Played</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="./assests/card1img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Top 50 - Global</p>
+                    <p class="card-info">Your daily updates of the most played.....</p>
+                </div>
+            </div> -->
+
+            <!-- <h2>Episodes You Might Like</h2> -->
+            <!-- <div class="card-container"> -->
+                
+                <!-- <div class="card">
+                    <img src="./assests/card2img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Billionare Mindset</p>
+                    <p class="card-info">Grow your business.....</p>
+                </div>
+                <div class="card">
+                    <img src="./assests/card3img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Billionare Mindset</p>
+                    <p class="card-info">Grow your business.....</p>
+                </div>
+                <div class="card">
+                    <img src="./assests/card4img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Billionare Mindset</p>
+                    <p class="card-info">Grow your business.....</p>
+                </div>
+                <div class="card">
+                    <img src="./assests/card5img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Billionare Mindset</p>
+                    <p class="card-info">Grow your business.....</p>
+                </div>
+                <div class="card">
+                    <img src="./assests/card6img.jpeg" class="card-img" alt="">
+                    <p class="card-title">Billionare Mindset</p>
+                    <p class="card-info">Grow your business.....</p>
+                </div> -->
+                <!-- <div class="card-container" id="songContainer"></div> -->
+            <!-- </div> -->
+             <h2>Trending Songs</h2>
+
+<div class="card-container" id="songsContainer">
+    <!-- Songs from API will appear here -->
+</div>
+
+    <h2 style="padding-left: 1.5rem; margin-top: 2rem;">
+      Top Tracks
+    </h2>
+    <!-- =============================
+REAL SPOTIFY TRACKS
+============================= -->
+
+<h2 style="padding-left:1.5rem; margin-top:2rem;">
+  Spotify New Releases
+</h2>
+
+<div class="card-container" id="spotifyTracksContainer"></div>
+            <div class="footer">
+                <div class="column">
+                    <h3 class="heading">Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">For The Record</a>
+                </div>
+                <div class="column">
+                    <h3 class="heading">Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">For The Record</a>
+                </div>
+                <div class="column">
+                    <h3 class="heading">Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">For The Record</a>
+                </div>
+            </div>
+
+          
+        </div>
+        <div class="music-player">
+            <audio id="audioPlayer"></audio>
+            <div class="album">
+                <img src="./assests/card4img.jpeg" class="album-img" alt="">
+                <div class="album-body">
+                    <p class="title">Ranjhan (From "Do Patti")</p>
+                    <p class="para">Sachet parampara, Tandon, Kausar Munir</p>
+                </div>
+                    <p class="premium-tag" id="premiumTag" style="display: none; color: gold; font-size: 0.7rem;">Premium User</p>
+                    <i class="fa-regular fa-heart footer-like-btn" data-id="${song.id}" id="footerLikeBtn"></i>
+                </div>
+
+    <!-- <div>
+        <p class="title"></p>
+        <p class="para"></p>
+    </div>
+
+    <i class="fa-regular fa-heart footer-like" id="footerLikeBtn"></i>
+            </div> -->
+            <div class="player">
+                <div class="player-controls">
+                    <img src="./assests/player_icon1.png" class="player-control-icon" alt="">
+                    <!-- <img src="./assests/player_icon2.png" class="player-control-icon" alt=""> -->
+                     <!-- <div class="control-item">
+    <img src="./assests/player_icon2.png" class="player-control-icon">
+</div> -->
+<div class="control-item">
+    <button id="shuffleBtn" class="control-btn">🔀</button>
+</div>
+<div class="control-item">
+    <button id="prevBtn" class="control-btn">⏮</button>
+</div>
+
+                    <!-- <img src="./assests/player_icon3.png" style="opacity: 1; height: 2rem;" class="player-control-icon" alt=""> -->
+                    <!-- <img src="./assests/player_icon3.png"
+     id="playPauseBtn"
+     style="opacity: 1; height: 2rem;"
+     class="player-control-icon"
+     alt=""> -->
+     <!-- <button id="playPauseBtn" class="main-play-btn">▶</button> -->
+
+     <!-- <button id="playPauseBtn" class="main-play-btn">
+    <span id="playIcon">▶</span>
+</button> -->
+
+<!-- <button id="playPauseBtn" class="main-play-btn">
+    ▶
+</button> -->
+
+<!-- <button id="playPauseBtn" class="main-play-btn">
+    <span class="icon-play">▶</span>
+    <span class="icon-pause">❚❚</span> -->
+<!-- </button> -->
+
+ <!-- <button id="playPauseBtn" class="main-play-btn">
+        ▶
+    </button> -->
+
+    <div class="control-item">
+    <button id="playPauseBtn" class="main-play-btn">▶</button>
+</div>
+
+<div class="control-item">
+    <button id="nextBtn" class="control-btn">⏭</button>
+</div>
+
+
+                    <!-- <img src="./assests/player_icon4.png" class="player-control-icon" alt=""> -->
+                     <!-- <div class="control-item">
+    <img src="./assests/player_icon4.png" class="player-control-icon">
+</div> -->
+                    <!-- <img src="./assests/player_icon5.png" class="player-control-icon" alt=""> -->
+                     <img src="./assests/player_icon5.png" id="repeatBtn" class="player-control-icon" alt="">
+                </div>
+                <div class="playback-bar">
+                    <span class="curr_time">00.00</span>
+                    <input type="range" min="0" max="100" class="progress-bar" name="" id="">
+                    <span class="tot_time">3.33</span>
+                </div>
+            </div>
+            <div class="controls">
+                <i class="fa-solid fa-music"></i>
+                <i class="fa-solid fa-grip-lines"></i>
+                <i class="fa-solid fa-computer"></i>
+                <i class="fa-solid fa-circle-down" id="downloadSongBtn" title="Download Song"></i>
+                <div class="music-bar">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <input type="range" min="0" max="100" class="volume-bar" name="" id="">
+                    <div class="volume-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+                </div>
+                <i class="fa-solid fa-expand"></i>
+            </div>
+
+            <audio id="audioPlayer" src="./assests/song.mp3"></audio>
+        </div>
+    </div>
+    <!-- ===== SUPPORT MODAL ===== -->
+<div class="support-modal" id="supportModal">
+    <div class="support-content">
+        <span class="close-support" id="closeSupport">&times;</span>
+        <h2>Support Center</h2>
+
+        <div class="faq">
+            <h4>Frequently Asked Questions</h4>
+            <p><strong>Q:</strong> How to upgrade to Premium?</p>
+            <p><strong>A:</strong> Click on the Premium button in navbar.</p>
+
+            <p><strong>Q:</strong> How to create playlist?</p>
+            <p><strong>A:</strong> Click "Create Playlist" in Library.</p>
+        </div>
+
+        <hr>
+
+        <h4>Contact Us</h4>
+        <form id="supportForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Describe your issue..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p class="support-success" id="supportSuccess"></p>
+    </div>
+</div>
+
+<!-- ===== NAVBAR DOWNLOAD MODAL ===== -->
+<div class="download-modal" id="downloadModal">
+    <div class="download-content">
+        <span class="close-download" id="closeDownload">&times;</span>
+        <h2>Your Downloaded Songs</h2>
+        <ul id="navbarDownloadList"></ul>
+        <p id="noDownloadsMsg"></p>
+    </div>
+</div>
+
+<!-- ===== SIGN UP MODAL ===== -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span id="closeSignup" class="close">&times;</span>
+    <h2>Create Account</h2>
+
+    <form id="signupForm">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p id="signupMessage"></p>
+  </div>
+</div>
+<!-- ===== LOGIN MODAL ===== -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span id="closeLogin" class="close">&times;</span>
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="loginMessage"></p>
+  </div>
+</div>
+<!-- ===== PLAYLIST MODAL ===== -->
+<div id="playlistModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closePlaylist">&times;</span>
+
+    <h2>Create Playlist</h2>
+
+    <form id="playlistForm">
+      <input
+        type="text"
+        id="playlistName"
+        placeholder="Enter playlist name"
+        required
+      >
+
+      <button type="submit">Create Playlist</button>
+    </form>
+
+    <p id="playlistMessage"></p>
+  </div>
+</div>
+<!-- =============================
+ADMIN DASHBOARD
+============================= -->
+
+<div id="adminModal" class="modal">
+
+  <div class="modal-content admin-dashboard">
+
+    <span class="close" id="closeAdmin">&times;</span>
+
+    <h2>Admin Dashboard</h2>
+
+    <div class="admin-stats">
+
+      <div class="admin-card">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </div>
+
+      <div class="admin-card">
+        <h3>Total Playlists</h3>
+        <p id="totalPlaylists">0</p>
+      </div>
+
+      <div class="admin-card">
+        <h3>Downloaded Songs</h3>
+        <p id="totalDownloads">0</p>
+      </div>
+
+      <div class="admin-card">
+        <h3>Premium Users</h3>
+        <p id="premiumUsers">0</p>
+      </div>
+
+    </div>
+
+    <div class="admin-section">
+
+      <h3>Registered Users</h3>
+
+      <ul id="adminUserList"></ul>
+
+    </div>
+
+  </div>
+
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

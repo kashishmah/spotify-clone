@@ -1,0 +1,1594 @@
+/* ============================= */
+/* GLOBAL SMOOTH THEME TRANSITION */
+/* ============================= */
+
+/* * {
+    transition: background-color 0.4s ease, 
+                color 0.4s ease, 
+                border-color 0.4s ease;
+} */
+
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body{
+    font-family: "Poppins", sans-serif; /* fixed font mismatch */
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+
+}
+
+/* ========== LAYOUT ========== */
+
+.main{
+    display: flex;
+    /* height: calc(100vh - 70px); */
+    min-height: calc(100vh - 70px);
+    padding: 0.5rem;
+}
+
+.sidebar{
+    background-color: #121212;
+    width: 300px; /* slightly better proportion */
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+    overflow-y: auto;
+}
+
+.main-content{
+    background: linear-gradient(to bottom, #1e1e1e, #121212);
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
+
+.music-player{
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    border-top: 1px solid #282828;
+}
+
+/* ========== NAVBAR ========== */
+
+.navbar{
+    height: 70px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* removed hard margin */
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.circle-icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.circle-icon:hover{
+    background-color: #2a2a2a;
+}
+
+.nav-center{
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 10px 15px;
+    border-radius: 30px;
+    width: 400px;
+    gap: 15px;
+}
+
+.nav-center input{
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right a{
+    text-decoration: none;
+    color: #b3b3b3;
+    font-weight: 600;
+}
+
+.nav-right a:hover{
+    color: white;
+}
+
+.divider{
+    width: 1px; /* fixed lpx bug */
+    height: 20px;
+    background-color: #b3b3b3;
+}
+
+/* .login-btn{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 45px;
+    transition: 0.2s;
+} */
+
+
+/* ===== LOGIN BUTTON STYLE ===== */
+
+/* .login-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+} */
+
+/* .login-btn:hover {
+  transform: scale(1.05);
+  background-color: #f2f2f2;
+} */
+
+/* ============================= */
+/* LOGIN BUTTON GLOW EFFECT */
+/* ============================= */
+
+.login-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #1db954, 0 0 25px #1db954;
+}
+
+
+/* ============================= */
+/* PROFILE SECTION */
+/* ============================= */
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #1db954;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: black;
+  margin-right: 8px;
+  transition: 0.3s ease;
+}
+
+.avatar:hover {
+  box-shadow: 0 0 10px #1db954;
+}
+
+
+/* ============================= */
+/* DROPDOWN MENU */
+/* ============================= */
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #181818;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 120px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.profile-dropdown a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.profile-dropdown a:hover {
+  background-color: #282828;
+}
+
+/* ========== SIDEBAR ========== */
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+    align-items: center;
+}
+
+.badge{
+    color: white;
+    background-color: #232323;
+    border-radius: 30px;
+    height: 35px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+}
+
+.badge:hover{
+    background-color: #383838
+}
+
+.box{
+    background-color: #232323;
+    border-radius: 0.75rem;
+    margin: 0.75rem 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.box-p1{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.box-p2{
+    font-size: 0.85rem;
+}
+
+.badge-b{
+    border: none;
+    border-radius: 100px;
+    font-weight: 700;
+    height: 2rem;
+    margin-top: 0.5rem;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+.badge-b:hover{
+    font-weight: 800;
+}
+
+/* ========== CARDS ========== */
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: #232323;
+    width: 200px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    background-color: #2a2a2a;
+    transform: translateY(-4px);
+}
+
+.card-img{
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.card-title{
+    font-weight: 600;
+}
+
+.card-info{
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* ========== FOOTER ========== */
+
+.footer{
+    border-top: 1px solid #282828; /* fixed lpx bug */
+    margin-top: 3rem;
+    padding: 2rem;
+    display: flex;
+    gap: 100px;
+}
+
+.column a{
+    display: block;
+    text-decoration: none;
+    color: #b3b3b3;
+    margin-top: 10px;
+}
+
+.column a:hover{
+    color: white;
+}
+
+.heading{
+    font-weight: 600;
+}
+
+/* ========== MUSIC PLAYER ========== */
+
+.album{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.player{
+    width: 50%;
+}
+
+.controls{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-img{
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.para{
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.title:hover,
+.para:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* .player-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+} */
+
+/* .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+} */
+
+/*  */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.player-control-icon{
+    height: 1rem;
+    margin-right: 1.75rem;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.player-control-icon:hover{
+    opacity: 1;
+}
+
+/* ==== PROGRESS BAR IMPROVED ==== */
+
+/* .progress-bar{
+    width: 70%;
+    cursor: pointer;
+    accent-color: #1db954;
+} */
+
+.progress-bar {
+    width: 70%;
+    cursor: pointer;
+    appearance: none;
+    height: 6px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #1db954 0%, #444 0%);
+    outline: none;
+    transition: background 0.2s ease;
+}
+
+/* Chrome */
+.progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #1db954;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Firefox */
+.progress-bar::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #1db954;
+    cursor: pointer;
+}
+
+.volume-bar{
+    width: 80px;
+    accent-color: #1db954;
+    cursor: pointer;
+}
+
+.controls i{
+    padding: 10px;
+    opacity: 0.8;
+}
+
+.controls i:hover{
+    opacity: 1;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media(max-width: 1000px){
+    .hide{
+        display: none;
+    }
+}
+
+/* ===== PREMIUM STYLES ===== */
+
+.premium-active {
+    color: #ffd700 !important;
+}
+
+.premium-navbar {
+    background: linear-gradient(to right, #1db954, #191414);
+}
+
+.premium-glow {
+    box-shadow: 0 0 10px #1db954;
+}
+
+/* ===== SUPPORT MODAL ===== */
+
+.support-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.support-content {
+    background-color: #181818;
+    width: 400px;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.support-content h2 {
+    margin-top: 0;
+}
+
+.close-support {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.support-content input,
+.support-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.support-content textarea {
+    height: 80px;
+    resize: none;
+}
+
+.support-content button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.support-content button:hover {
+    background-color: #1db954;
+    color: white;
+}
+
+.support-success {
+    color: #1db954;
+    margin-top: 10px;
+}
+
+/* ===== DOWNLOAD SONG (PREMIUM ONLY) ===== */
+
+#downloadSongBtn.locked {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+#downloadSongBtn.premium-enabled {
+    color: #1db954;
+}
+
+/* ===== NAVBAR DOWNLOAD MODAL ===== */
+
+.download-modal {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.download-content {
+    background-color: #181818;
+    padding: 2rem;
+    width: 400px;
+    border-radius: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-download {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#navbarDownloadList {
+    padding-left: 20px;
+}
+
+#navbarDownloadList li {
+    margin-bottom: 8px;
+}
+
+/* ===== DOWNLOAD BADGE ===== */
+
+.download-badge {
+    background-color: #1db954;
+    color: black;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+/* ===== REMOVE BUTTON STYLE ===== */
+
+.remove-btn {
+    margin-left: 10px;
+    background-color: #e91429;
+    color: white;
+    border: none;
+    padding: 2px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.remove-btn:hover {
+    opacity: 0.8;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #121212;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background: #1db954;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search-input {
+  padding: 7px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 250px;
+  background-color: #121212;
+  color: white;
+  border: 1px solid #333;
+  transition: 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #1db954;
+  box-shadow: 0 0 8px #1db954;
+}
+
+.circle-icon:active {
+    transform: scale(0.95);
+}
+.main-content {
+    overflow-y: auto;
+}
+
+/* ===== LIBRARY ACTIVE EFFECT ===== */
+
+/* .library-active {
+    color: #1db954;
+    transition: 0.3s;
+} */
+
+/* ===== YOUR LIBRARY HOVER EFFECT ===== */
+
+#libraryBtn {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#libraryBtn:hover {
+    color: #1db954;
+}
+
+/* ============================= */
+/* THEME TOGGLE */
+/* ============================= */
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ============================= */
+/* LIGHT MODE */
+/* ============================= */
+
+/* ============================= */
+/* LIGHT MODE FIXED */
+/* ============================= */
+
+.light-mode {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+/* Navbar */
+.light-mode .navbar {
+    background-color: #ffffff;
+    color: #111;
+}
+
+/* Sidebar */
+.light-mode .sidebar {
+    background-color: #eaeaea;
+    color: #111;
+}
+
+/* Main Content */
+.light-mode .main-content {
+    background: linear-gradient(to bottom, #ffffff, #eaeaea);
+    color: #111;
+}
+
+/* Cards */
+.light-mode .card {
+    background-color: #ffffff;
+    color: #111;
+}
+
+.light-mode .card:hover {
+    background-color: #f0f0f0;
+}
+
+/* Footer */
+.light-mode .footer {
+    border-top: 1px solid #ccc;
+}
+
+/* Music Player */
+.light-mode .music-player {
+    background-color: #ffffff;
+    border-top: 1px solid #ccc;
+    color: #111;
+}
+
+/* Inputs */
+.light-mode input {
+    background-color: #ffffff;
+    color: #111;
+    border: 1px solid #ccc;
+}
+
+/* Links */
+.light-mode a {
+    color: #333;
+}
+
+.light-mode a:hover {
+    color: #000;
+}
+
+/* ============================= */
+/* FIX SIDEBAR TEXT IN LIGHT MODE */
+/* ============================= */
+
+.light-mode .sidebar h4,
+.light-mode .sidebar p,
+.light-mode .sidebar span,
+.light-mode .sidebar a {
+    color: #111 !important;
+}
+
+.light-mode .sidebar .box {
+    background-color: #ffffff;
+}
+
+.light-mode .sidebar .badge {
+    background-color: #dcdcdc;
+    color: #111;
+}
+
+.light-mode .sidebar .badge:hover {
+    background-color: #cfcfcf;
+}
+
+/* ============================= */
+/* FIX HOME BUTTON IN LIGHT MODE */
+/* ============================= */
+
+.light-mode .circle-icon {
+    background-color: #e0e0e0;
+    color: #111;
+}
+
+.light-mode .circle-icon:hover {
+    background-color: #d4d4d4;
+}
+
+/* ============================= */
+/* FIX NAVBAR LINKS IN LIGHT + PREMIUM */
+/* ============================= */
+
+.light-mode .navbar a {
+    color: #333;
+}
+
+.light-mode .navbar a:hover {
+    color: #000;
+}
+
+/* When Premium + Light Mode */
+.light-mode .premium-navbar a {
+    color: #111;
+}
+
+.light-mode .premium-navbar a:hover {
+    color: #000;
+}
+
+.light-mode .navbar i {
+    color: #111;
+}
+
+/* ============================= */
+/* FORCE FIX NAVBAR TEXT COLORS */
+/* ============================= */
+
+/* Light mode normal navbar */
+.light-mode .navbar .nav-right a {
+    color: #111 !important;
+}
+
+.light-mode .navbar .nav-right a:hover {
+    color: #000 !important;
+}
+
+/* Light mode + Premium navbar */
+.light-mode .premium-navbar .nav-right a {
+    color: #111 !important;
+}
+
+.light-mode .premium-navbar .nav-right a:hover {
+    color: #000 !important;
+}
+
+/* Install icon fix */
+.light-mode .navbar .nav-right i {
+    color: #111 !important;
+}
+/* ============================= */
+/* COMPLETE NAVBAR FIX FOR LIGHT MODE */
+/* ============================= */
+
+.light-mode .navbar {
+    background-color: #ffffff !important;
+    color: #111 !important;
+}
+
+/* Navbar Links */
+.light-mode .navbar .nav-right a {
+    color: #111 !important;
+}
+
+.light-mode .navbar .nav-right a:hover {
+    color: #000 !important;
+}
+
+/* Navbar Icons */
+.light-mode .navbar i {
+    color: #111 !important;
+}
+
+/* Divider */
+.light-mode .navbar .divider {
+    background-color: #ccc !important;
+}
+
+/* Search Bar Background */
+.light-mode .nav-center {
+    background-color: #f0f0f0 !important;
+}
+
+/* Search Input */
+.light-mode .nav-center input {
+    color: #111 !important;
+}
+
+/* Search Icons */
+.light-mode .nav-center i {
+    color: #111 !important;
+}
+
+/* Premium + Light Mode Navbar */
+.light-mode .premium-navbar {
+    background: linear-gradient(to right, #1db954, #a7f3d0) !important;
+    color: #111 !important;
+}
+
+/* ============================= */
+/* STABLE CENTERED PLAY BUTTON */
+/* ============================= */
+
+/* ============================= */
+/* CENTERED SPOTIFY PLAY BUTTON */
+/* ============================= */
+
+/* ============================= */
+/* FINAL COMPACT CENTERED PLAY BUTTON */
+/* ============================= */
+
+.main-play-btn {
+    width: 38px;              /* smaller */
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffff;
+    color: #000;
+    font-size: 14px;          /* smaller icon */
+    /* font-weight: bold; */
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* padding: 0; */
+    /* margin: 0;                remove side shift */
+    /* transition: transform 0.2s ease; */
+}
+
+
+    
+
+.main-play-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Dark Mode */
+body:not(.light-mode) .main-play-btn {
+    background-color: white;
+    color: black;
+}
+
+/* Light Mode */
+.light-mode .main-play-btn {
+    background-color: #111;
+    color: white;
+}
+
+/* Equal spacing wrapper */
+.control-item {
+    width: 60px;      /* equal area for each control */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Resize play button */
+/* NAV CENTER SEARCH BAR */
+
+.nav-center{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #121212;
+    padding: 6px 15px;
+    border-radius: 30px;
+    width: 420px;
+    height: 40px;
+}
+
+/* SEARCH INPUT */
+
+.search-input{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 0.9rem;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* PLACEHOLDER COLOR */
+
+.search-input::placeholder{
+    color: #b3b3b3;
+}
+
+/* SEARCH ICON */
+
+#searchBtn{
+    color: #b3b3b3;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* HOVER EFFECT */
+
+#searchBtn:hover{
+    color: white;
+}
+
+/* FOLDER ICON */
+
+.nav-center .fa-folder{
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.nav-center .fa-folder:hover{
+    color: white;
+}
+
+/* ============================= */
+/* SPOTIFY CARD HOVER EFFECT */
+/* ============================= */
+
+.card{
+    position: relative;
+    overflow: hidden;
+}
+
+/* ALBUM IMAGE ZOOM */
+
+.card-img{
+    transition: transform 0.35s ease;
+}
+
+.card:hover .card-img{
+    transform: scale(1.08);
+}
+
+/* PLAY BUTTON ON CARD */
+
+.card::after{
+    content: "▶";
+    position: absolute;
+    right: 15px;
+    bottom: 80px;
+    
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    
+    background-color: #1db954;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition: 0.3s ease;
+}
+
+/* SHOW BUTTON ON HOVER */
+
+.card:hover::after{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CARD SHADOW */
+
+.card:hover{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* ============================= */
+/* LIKE BUTTON */
+/* ============================= */
+
+.card-img-wrapper{
+    position: relative;
+}
+
+.like-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 18px;
+    color: white;
+
+    cursor: pointer;
+    opacity: 0;
+
+    transition: 0.3s ease;
+}
+
+/* show heart on hover */
+
+.card:hover .like-btn{
+    opacity: 1;
+}
+
+/* liked state */
+
+.like-btn.liked{
+    color: #1db954;
+}
+
+/* ============================= */
+/* FOOTER LIKE BUTTON */
+/* ============================= */
+
+.footer-like-btn{
+    font-size: 18px;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #b3b3b3;
+    transition: 0.3s ease;
+}
+
+.footer-like-btn:hover{
+    color: white;
+}
+
+.footer-like-btn.liked{
+    color: #1db954;
+}
+
+.like-btn{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 18px;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.like-btn:hover{
+    color: #1db954;
+}
+
+.fa-solid.fa-heart{
+    color: #1db954;
+}
+
+.footer-like{
+    margin-left: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.control-btn{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ===== ROTATING ALBUM ANIMATION ===== */
+
+@keyframes rotateAlbum {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply animation */
+.album-img.rotate {
+    animation: rotateAlbum 8s linear infinite;
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ============================= */
+
+/* ===== TABLET (≤ 1000px) ===== */
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .nav-center {
+        width: 300px;
+    }
+
+    .card {
+        width: 160px;
+    }
+}
+
+/* ===== MOBILE (≤ 768px) ===== */
+@media (max-width: 768px) {
+
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 10px;
+    }
+
+    .nav-center {
+        width: 100%;
+        order: 3;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .card-container {
+        justify-content: center;
+    }
+
+    .card {
+        width: 45%;
+        margin: 10px;
+    }
+
+    /* MUSIC PLAYER STACK */
+    .music-player {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .album,
+    .player,
+    .controls {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+}
+
+/* ===== SMALL MOBILE (≤ 480px) ===== */
+@media (max-width: 480px) {
+
+    .card {
+        width: 90%;
+    }
+
+    .nav-left {
+        gap: 10px;
+    }
+
+    .nav-right a {
+        font-size: 12px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .album-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .player-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
+}
+
+/* ===== VOLUME ANIMATION ===== */
+
+.volume-indicator {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 15px;
+    margin-left: 8px;
+}
+
+.volume-indicator span {
+    width: 3px;
+    height: 5px;
+    background: #1db954;
+    border-radius: 2px;
+    animation: volumeAnim 1s infinite ease-in-out;
+    animation-play-state: paused;
+}
+
+.volume-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.volume-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.volume-indicator span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes volumeAnim {
+    0%, 100% { height: 5px; }
+    50% { height: 15px; }
+}
+
+.active-song {
+    background-color: #1db954 !important;
+    color: black !important;
+    transform: scale(1.03);
+}
+/* SHUFFLE ACTIVE */
+#shuffleBtn.active {
+    color: #1db954;
+}
+
+/* #shuffleBtn.active {
+    color: #1db954;
+} */
+
+
+
+/* ============================= */
+/* PLAYLIST FEATURE */
+/* ============================= */
+
+.playlist-box {
+    background-color: #181818;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}.playlist-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1db954;
+}
+
+.playlist-songs {
+    list-style: none;
+    padding-left: 0;
+}.playlist-songs li {
+    padding: 6px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+
+.playlist-songs li:hover {
+    color: #1db954;
+}
+
+.add-playlist-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #1db954;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}.add-playlist-btn:hover {
+    opacity: 0.9;
+}
+
+.playlist-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.playlist-delete {
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.playlist-delete:hover {
+    opacity: 0.8;
+}
+/* =============================
+ADMIN DASHBOARD
+============================= */
+
+.admin-dashboard {
+    width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.admin-card {
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.admin-card h3 {
+    margin-bottom: 10px;
+    color: #1db954;
+}
+
+.admin-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.admin-section {
+    margin-top: 30px;
+}
+
+#adminUserList {
+    list-style: none;
+    padding-left: 0;
+}
+
+#adminUserList li {
+    background-color: #181818;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* =============================
+TOP TRACKS
+============================= */
+
+.top-track-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.top-track-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #1db954;
+    color: black;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-track-play {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #1db954;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.top-track-play:hover {
+    transform: scale(1.03);
+}
+
+/* =============================
+REAL SPOTIFY TRACKS
+============================= */
+
+.spotify-card {
+    position: relative;
+}
+
+.spotify-play-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #1db954;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.spotify-play-btn:hover {
+    transform: scale(1.03);
+}
